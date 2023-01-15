@@ -18,7 +18,30 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      return View(_db.Engineers.ToList());
+      return View(_db.Machines.ToList());
+    }
+
+    public ActionResult Create()
+    {
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View();
+    }
+
+    [HttpPost]
+
+    public ActionResult Create(Machine machine)
+    {
+      if (!ModelState.IsValid)
+      {
+        ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+        return View(machine);
+      }
+      else
+      {
+        _db.Machines.Add(machine);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
     }
 
     
