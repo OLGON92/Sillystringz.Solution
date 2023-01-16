@@ -4,7 +4,7 @@
 
 @model Factory.Models.Engineer
 
-<h2>Edit</h2>
+<h1>Edit</h1>
 
 <h4>Edit this engineer: @Html.DisplayFor(model => model.Name)</h4>
 
@@ -19,8 +19,8 @@
   @Html.EditorFor(model => model.Specialty)
 
 
-  <input type = "submit" values = "Save" />
+  <input type = "submit" values = "Save" class="btnclass" />
 }
 
 <p>@Html.ActionLink("Back to engineers", "Index")</p>
-Footer
+
