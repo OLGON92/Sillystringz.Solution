@@ -2,14 +2,46 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models;
+
 <h1>Welcome to your Factory Management System</h1>
+
 <br>
-<div class="machineHome">
-  <p>@Html.ActionLink("Manage Engineers", "Index", "Engineers")</p>
-  <img src="~/img/engineer.jpg">
-  <br>
-  <br>
-  <br>
-  <p>@Html.ActionLink("Manage Machines", "Index", "Machines")</p>
-  <img src="~/img/terminator.jpg">
-</div>
+
+<h4>Engineers</h4>
+<img src="~/img/engineer.jpg">
+<br>
+@if (Model["engineers"].Length == 0)
+{
+  <p>No engineers have been added yet!</p>
+} 
+<ul>
+  @foreach (Engineer engineer in Model["categories"])
+  {
+    <li>@Html.ActionLink(@engineer.Name, "Details", "Engineers", new { id = @engineer.EngineerId})</li>
+  }
+</ul>
+
+<h4>Machines</h4>
+<img src="~/img/terminator.jpg">
+<br>
+@if (Model["machines"].Length == 0)
+{
+  <p>No machines have been added yet!</p>
+} 
+<ul>
+  @foreach (Machine machine in Model["machines"])
+  {
+    <li>@Html.ActionLink(@machine.Description, "Details", "Machines", new { id = @machine.MachineId})</li>
+  }
+</ul>
+
+<hr>
+
+<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p> 
+<p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
+
+
+
+
+
