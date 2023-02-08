@@ -78,7 +78,7 @@ _This is my eleventh project for Epicodus that is meant to show off my understan
 
 ## Known Bugs
 
-* _None to be found._
+* _Works well, but the styling still needs to be updated._
 
 
 ## License
